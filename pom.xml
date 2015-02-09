@@ -150,6 +150,12 @@
 
     </repositories>
 
+    <profiles>
+        <profile>
+            <id>openshift</id>
+        </profile>
+    </profiles>
+
     <build>
         <finalName>medicom</finalName>
         <plugins>
