@@ -1,20 +1,21 @@
 package com.springapp.mvc;
 
 import com.springapp.beans.PersonView;
+import com.springapp.service.PersonService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 @RequestMapping("/")
 public class HelloController {
+
+    @Autowired
+    private PersonService personService;
 
 	/*@RequestMapping(method = RequestMethod.GET)
 	public String printWelcome(ModelMap model) {
@@ -42,5 +43,15 @@ public class HelloController {
     @RequestMapping("panel2")
     public String showPanel2() {
         return "panel2";
+    }
+
+    @RequestMapping("/createPerson")
+    public void createPerson() {
+        personService.createPerson();
+    }
+
+    @RequestMapping("/find")
+    public void findPerson() {
+        personService.findPerson();
     }
 }

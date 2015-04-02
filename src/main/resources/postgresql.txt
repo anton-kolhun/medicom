@@ -1,0 +1,5 @@
+SHOW SEARCH_PATH;
+
+SET SEARCH_PATH TO test;
+
+ALTER ROLE anton SET search_path TO test;
