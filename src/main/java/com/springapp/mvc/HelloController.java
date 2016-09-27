@@ -1,6 +1,7 @@
 package com.springapp.mvc;
 
 import com.springapp.beans.PersonView;
+import com.springapp.service.CachedService;
 import com.springapp.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,8 +18,11 @@ public class HelloController {
     @Autowired
     private PersonService personService;
 
+    @Autowired
+    private CachedService cachedService;
+
 	/*@RequestMapping(method = RequestMethod.GET)
-	public String printWelcome(ModelMap model) {
+    public String printWelcome(ModelMap model) {
 		//model.addAttribute("message", "Hello world!");
 		return "hello";
 	}*/
@@ -53,5 +57,12 @@ public class HelloController {
     @RequestMapping("/find")
     public void findPerson() {
         personService.findPerson();
+    }
+
+    @RequestMapping("/useCache")
+    public String useCache() {
+        String value = cachedService.useCache("test");
+        System.out.println("calue");
+        return "grid";
     }
 }

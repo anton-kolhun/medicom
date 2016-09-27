@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>medicom</title>
 
-    <c:url value='' var="WEB_ROOT" />
+    <c:url value='/' var="WEB_ROOT" />
     <base href="//${pageContext.request.serverName}:${pageContext.request.serverPort}${WEB_ROOT}"/>
     <t:insertAttribute name="header"/>
 </head>

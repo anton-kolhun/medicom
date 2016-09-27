@@ -40,7 +40,7 @@ import java.util.Map;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = {"com.springapp"})
-@Import(value = BeanConfig.class)
+@Import(value = {BeanConfig.class, JpaConfig.class, CachingConfig.class})
 public class WebConfig extends WebMvcConfigurerAdapter implements ServletContextAware {
 
     @Autowired

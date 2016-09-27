@@ -3,6 +3,7 @@ package com.springapp.service;
 import com.springapp.entity.Person;
 import com.springapp.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
@@ -40,7 +41,6 @@ public class PersonService {
         person.setSurname("surname2");
         personRepository.save(person);
     }
-
 
 
 }
