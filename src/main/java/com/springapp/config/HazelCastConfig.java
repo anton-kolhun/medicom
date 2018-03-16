@@ -2,7 +2,9 @@ package com.springapp.config;
 
 
 import com.hazelcast.config.Config;
+import com.hazelcast.config.JoinConfig;
 import com.hazelcast.config.MaxSizeConfig;
+import com.hazelcast.config.NetworkConfig;
 import com.hazelcast.core.Hazelcast;
 import com.hazelcast.core.HazelcastInstance;
 import org.springframework.cache.CacheManager;
@@ -22,6 +24,9 @@ public class HazelCastConfig {
     @Bean
     public HazelcastInstance hazelcastInstance() {
         Config config = new Config();
+        NetworkConfig network = config.getNetworkConfig();
+        JoinConfig join = network.getJoin();
+        join.getMulticastConfig().setEnabled(false);
         config
                 .getMapConfig(ACCOUNTS_TREE_LOOKUP_DATA)
                 .setTimeToLiveSeconds(HZ_CACHE_TTL_SEC)
